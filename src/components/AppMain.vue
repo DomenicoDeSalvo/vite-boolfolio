@@ -5,21 +5,29 @@ export default {
   },
   data() {
     return {
-      projects:[]
+      projects:[],
+      currentPage: 1,
+      lastPage: null
     }
   },
   methods:{
     fetchPost(){
       axios.get('http://127.0.0.1:8000/api/projects',{
         params:{
-          page: 1,
-          perPage: 9
+          page: this.currentPage,
+          perPage: 6
         }
       })
       .then(res => {
         this.projects = res.data.results.data
+        this.lastPage = res.data.results.last_page
       });
-    }
+    },
+    changePage(n){
+      if(n===this.currentPage) return
+      this.currentPage = n
+      this.fetchPost()
+    },
   },
   created(){
     this.fetchPost()
@@ -51,9 +59,19 @@ export default {
           </div>
         </div>
       </div>
+      <div class="container">
+        <ul class=" list-unstyled gap-3 d-flex justify-content-center">
+          <li @click="changePage(n)" v-for="n in lastPage" :key="n" class="change_page">{{ n }}</li>
+        </ul>
+      </div>
     </section>
   </main>
 
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+  .change_page{
+    cursor: pointer;
+  }
+
+</style>
