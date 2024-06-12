@@ -12,7 +12,8 @@ export default {
     fetchPost(){
       axios.get('http://127.0.0.1:8000/api/projects',{
         params:{
-          page: 1
+          page: 1,
+          perPage: 9
         }
       })
       .then(res => {
@@ -37,16 +38,18 @@ export default {
         </h2>
       </div>
       <div class="container">
-        <ul class="list-unstyled">
-          <li v-for="project in projects" :key="project.id" class="my-4">
-            <div class="my-1 d-flex justify-content-between">
-              <span class="fw-bolder">{{ project.title }}</span>
-              <span>{{ project.technology }}</span>
-              <span>{{ project.starting_date }}</span>
+        <div class="row row-cols-3">
+          <div v-for="project in projects" :key="project.id" class="col my-4 d-flex align-items-stretch">
+            <div class="card flex-fill">
+              <div class="card-body flex-column d-flex">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                <p class="card-text flex-grow-1">{{ project.description }}</p>
+                <a href="#" class="card-link">{{ project.link }}</a>
+              </div>
             </div>
-            <div>{{ project.description }}</div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
