@@ -1,20 +1,20 @@
 <script>
 import { store } from './store.js'
 import AppHeader from './components/AppHeader.vue'
-import AppContent from './components/AppContent.vue'
+import AppMain from './components/AppMain.vue'
 import AppFooter from './components/AppFooter.vue'
 
 export default {
   components: {
     AppHeader,
-    AppContent,
+    AppMain,
     AppFooter,
   },
   data() {
     return {
       store,
     }
-  }
+  },
 }
 
 </script>
@@ -22,9 +22,9 @@ export default {
 <template>
 
   <div id="app">
-    <AppHeader></AppHeader>
-    <AppContent></AppContent>
-    <AppFooter></AppFooter>
+    <AppHeader/>
+    <AppMain/>
+    
 
   </div>
 
