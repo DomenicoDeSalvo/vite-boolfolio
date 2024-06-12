@@ -15,7 +15,7 @@ export default {
       axios.get('http://127.0.0.1:8000/api/projects',{
         params:{
           page: this.currentPage,
-          perPage: 6
+          perPage: 9
         }
       })
       .then(res => {
@@ -51,8 +51,18 @@ export default {
             <div class="card flex-fill">
               <div class="card-body flex-column d-flex">
                 <h5 class="card-title">{{ project.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ project.starting_date }}</h6>
                 <p class="card-text flex-grow-1">{{ project.description }}</p>
+                <div class="d-flex justify-content-between">
+                  <ul class="list-unstyled gap-3 d-flex">
+                    <li class="fst-italic" v-for="tech in project.technologies" :key="tech.id">
+                      {{ tech.name }}
+                    </li>
+                  </ul>
+                  <span class="bolder" v-if="project.type">
+                    {{ project.type.name }}
+                  </span>
+                </div>
                 <a href="#" class="card-link">{{ project.link }}</a>
               </div>
             </div>
@@ -61,7 +71,7 @@ export default {
       </div>
       <div class="container">
         <ul class=" list-unstyled gap-3 d-flex justify-content-center">
-          <li @click="changePage(n)" v-for="n in lastPage" :key="n" class="change_page">{{ n }}</li>
+          <li @click="changePage(n)" v-for="n in lastPage" :key="n"  class="change_page" :class="n === currentPage ? 'text-danger' : ''">{{ n }}</li>
         </ul>
       </div>
     </section>
