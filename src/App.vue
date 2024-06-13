@@ -1,15 +1,7 @@
 <script>
 import { store } from './store.js'
-import AppHeader from './components/AppHeader.vue'
-import AppMain from './components/AppMain.vue'
-import AppFooter from './components/AppFooter.vue'
 
 export default {
-  components: {
-    AppHeader,
-    AppMain,
-    AppFooter,
-  },
   data() {
     return {
       store,
@@ -22,6 +14,7 @@ export default {
   <nav>
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/portfolio">Portfolio</RouterLink>
+    <RouterLink to="/contact">Contact</RouterLink>
   </nav>
   <main>
     <RouterView />
