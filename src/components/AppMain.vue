@@ -15,7 +15,7 @@ export default {
       axios.get('http://127.0.0.1:8000/api/projects',{
         params:{
           page: this.currentPage,
-          perPage: 9
+          perPage: 6
         }
       })
       .then(res => {
@@ -69,7 +69,7 @@ export default {
           </div>
         </div>
       </div>
-      <div class="container">
+      <div v-if="lastPage > 1" class="container">
         <ul class=" list-unstyled gap-3 d-flex justify-content-center">
           <li @click="changePage(n)" v-for="n in lastPage" :key="n"  class="change_page" :class="n === currentPage ? 'text-danger' : ''">{{ n }}</li>
         </ul>
