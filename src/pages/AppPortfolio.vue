@@ -50,7 +50,9 @@ export default {
           <div v-for="project in projects" :key="project.id" class="col my-4 d-flex align-items-stretch">
             <div class="card flex-fill">
               <div class="card-body flex-column d-flex">
-                <h5 class="card-title">{{ project.title }}</h5>
+                <RouterLink class="text-secondary" :to="{name:'project', params:{slug:project.slug}}">
+                  <h5 class="card-title">{{ project.title }}</h5>
+                </RouterLink>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ project.starting_date }}</h6>
                 <p class="card-text flex-grow-1">{{ project.description }}</p>
                 <div class="d-flex justify-content-between">
