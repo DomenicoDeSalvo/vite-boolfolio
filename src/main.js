@@ -8,7 +8,7 @@ import AppContact from './pages/AppContact.vue'
 const routes = [
     {path: '/', component: AppHome},
     {path: '/portfolio', component: AppPortfolio},
-    {path: '/contact', component: AppContact,
+    {path: '/contact', component: AppContact},
 ]
 
 const router = createRouter({
