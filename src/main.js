@@ -6,9 +6,9 @@ import AppPortfolio from './pages/AppPortfolio.vue'
 import AppContact from './pages/AppContact.vue'
 
 const routes = [
-    {path: '/', component: AppHome},
-    {path: '/portfolio', component: AppPortfolio},
-    {path: '/contact', component: AppContact},
+    {path: '/', name:'home', component: AppHome},
+    {path: '/portfolio', name: 'portfolio', component: AppPortfolio},
+    {path: '/contact', name: 'contact', component: AppContact},
 ]
 
 const router = createRouter({
