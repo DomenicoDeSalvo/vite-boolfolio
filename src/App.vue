@@ -16,18 +16,16 @@ export default {
     }
   },
 }
-
 </script>
 
 <template>
-
-  <div id="app">
-    <AppHeader/>
-    <AppMain/>
-    
-
-  </div>
-
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/portfolio">Portfolio</RouterLink>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style lang="scss">
