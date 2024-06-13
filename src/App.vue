@@ -1,7 +1,11 @@
 <script>
 import { store } from './store.js'
+import NavBar from './components/NavBar.vue'
 
 export default {
+  components:{
+    NavBar
+  },
   data() {
     return {
       store,
@@ -11,11 +15,7 @@ export default {
 </script>
 
 <template>
-  <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/portfolio">Portfolio</RouterLink>
-    <RouterLink to="/contact">Contact</RouterLink>
-  </nav>
+  <NavBar />
   <main>
     <RouterView />
   </main>
